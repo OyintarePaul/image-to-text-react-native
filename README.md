@@ -1,50 +1,85 @@
-# Welcome to your Expo app 👋
+# 📖 Read Aloud
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Read Aloud** is a simple and intuitive mobile application built with React Native. The app allows users to take a picture or select one from their device's media gallery, extract any readable text from the image using OCR (Optical Character Recognition), and have the text read aloud using text-to-speech functionality.
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+- 📸 Capture a photo using the device camera
+- 🖼 Select an image from the device's photo library
+- 🔍 Extract text from images using OCR
+- 🔊 Read extracted text aloud with a built-in text-to-speech engine
+- 🌓 Clean and minimal UI with smooth user experience
+
+## 🛠 Tech Stack
+
+- **React Native** – Core mobile framework
+- **Expo** – Simplified development and deployment
+- **expo-image-picker** – Image selection from gallery
+- **expo-speech** – Text-to-speech API
+- **Image to Text API** – OCR text extraction
+
+## 📦 Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/OyintarePaul/image-to-text-react-native.git
+   cd image-to-text-react-native
+
+
+2. **Install dependencies:**
 
    ```bash
    npm install
-   ```
 
-2. Start the app
+
+3. **Start the development server:**
 
    ```bash
    npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+> Ensure you have [Node.js](https://nodejs.org/), [Expo CLI](https://docs.expo.dev/get-started/installation/), and a mobile emulator or Expo Go installed on your device.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📱 Usage
 
-## Get a fresh project
+1. Launch the app.
+2. Choose to either:
 
-When you're ready, run:
+   * Take a new photo, or
+   * Pick an image from your gallery.
+3. Tap the "Convert Text" button to extract the text from the image.
+4. Tap the "Read Aloud" button to hear the extracted text.
 
-```bash
-npm run reset-project
+## 📁 Project Structure
+
+```
+read-aloud/
+├── assets/                 # App assets (icons, splash, etc.)
+├── components/             # Reusable UI components
+├── screens/                # Screen components (e.g. Home, Camera, Result)
+├── utils/                  # OCR and helper utilities
+├── App.js                  # Entry point
+└── README.md
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
+## 🧪 Testing
 
-To learn more about developing your project with Expo, look at the following resources:
+Basic testing can be done through Expo Go by scanning the QR code from `npx expo start`.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 📝 License
 
-## Join the community
+This project is licensed under the MIT License.
 
-Join our community of developers creating universal apps.
+## 🙌 Acknowledgmentss
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+* [Expo](https://expo.dev/)
+* [Image to Text API](https://apilayer.com/marketplace/image_to_text-api)
+* [React Native Community](https://reactnative.dev/)
+
+---
+
+Feel free to contribute or submit issues if you encounter bugs or have feature suggestions!
+
+```
+
