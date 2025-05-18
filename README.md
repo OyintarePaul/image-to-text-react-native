@@ -50,19 +50,6 @@
 3. Tap the "Convert Text" button to extract the text from the image.
 4. Tap the "Read Aloud" button to hear the extracted text.
 
-## 📁 Project Structure
-
-```
-read-aloud/
-├── assets/                 # App assets (icons, splash, etc.)
-├── components/             # Reusable UI components
-├── screens/                # Screen components (e.g. Home, Camera, Result)
-├── utils/                  # OCR and helper utilities
-├── App.js                  # Entry point
-└── README.md
-```
-
-
 ## 🧪 Testing
 
 Basic testing can be done through Expo Go by scanning the QR code from `npx expo start`.
