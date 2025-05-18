@@ -1,14 +1,14 @@
-import * as ImagePicker from "expo-image-picker";
-import { useRouter } from "expo-router";
-import { Camera, Images, Speech } from "lucide-react-native";
-import { StyleSheet, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Image } from "expo-image";
-
-const logo = require("@/assets/images/splash.png");
 import Button from "@/components/Button";
 import Text from "@/components/Text";
 import { useSelectedAsset } from "@/contexts/selected-asset";
+import { Image } from "expo-image";
+import * as ImagePicker from "expo-image-picker";
+import { useRouter } from "expo-router";
+import { Camera, Images } from "lucide-react-native";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+const logo = require("@/assets/images/splash.png");
 
 export default function HomeScreen() {
   const { setAsset } = useSelectedAsset();
