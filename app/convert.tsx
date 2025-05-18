@@ -10,7 +10,7 @@ import {
   convertImageToText,
   ImageToTextApiResponse,
 } from "@/utils/image-to-text";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ConvertScreen() {
   const { asset } = useSelectedAsset();
@@ -28,7 +28,6 @@ export default function ConvertScreen() {
 
   useEffect(() => {
     function stopSpeech() {
-      console.log("Speech stopped");
       Speech.stop();
     }
     return () => stopSpeech();
@@ -49,6 +48,8 @@ export default function ConvertScreen() {
   }
 
   return (
+    <View>
+
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.wrapper}>
         <Image
@@ -61,7 +62,9 @@ export default function ConvertScreen() {
           <Text style={styles.text}>{response.all_text}</Text>
         )}
       </View>
-      <View style={styles.footer}>
+      
+    </ScrollView>
+    <View style={styles.footer}>
         {response?.all_text ? (
           <Button
             title="Read out loud"
@@ -76,32 +79,33 @@ export default function ConvertScreen() {
           />
         )}
       </View>
-    </ScrollView>
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "space-between",
-    paddingBottom: 100,
+    paddingBottom: 100,    
+    paddingHorizontal: 16,
+    minHeight: "100%"
   },
   wrapper: {
-    paddingHorizontal: 16,
+    gap: 16,
   },
+
   image: {
     height: 350,
     width: "100%",
   },
   text: {
-    fontSize: 20,
+    fontSize: 18,
   },
   error: {
     color: "red",
   },
   footer: {
     position: "absolute",
-    bottom: 40,
+    bottom: 30,
     width: "100%",
     paddingHorizontal: 16,
     justifyContent: "center",
