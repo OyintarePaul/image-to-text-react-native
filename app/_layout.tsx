@@ -1,20 +1,22 @@
-import { useFonts } from 'expo-font';
-import { LexendDeca_400Regular } from '@expo-google-fonts/lexend-deca/400Regular';
-import { LexendDeca_700Bold } from '@expo-google-fonts/lexend-deca/700Bold';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { TouchableOpacity } from "react-native";
+import { Settings } from "lucide-react-native";
+import { LexendDeca_400Regular } from "@expo-google-fonts/lexend-deca/400Regular";
+import { LexendDeca_700Bold } from "@expo-google-fonts/lexend-deca/700Bold";
 import { DarkTheme, ThemeProvider } from "@react-navigation/native";
-import { Stack } from "expo-router";
+import { useFonts } from "expo-font";
+import { Link, Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
 
 import SelectedAssetProvider from "@/contexts/selected-asset";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-   const [loaded, error] = useFonts({
-    LexendDeca_400Regular,  
-    LexendDeca_700Bold, 
+  const [loaded, error] = useFonts({
+    LexendDeca_400Regular,
+    LexendDeca_700Bold,
   });
 
   useEffect(() => {
@@ -30,20 +32,41 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={DarkTheme}>
       <SelectedAssetProvider>
-        <Stack>
+        <Stack screenOptions={{
+          headerStyle: {
+            backgroundColor: "black"
+          }
+        }}>
           <Stack.Screen
             name="index"
             options={{
-              headerShown: false,
+              title: "",
+              headerRight: () => (
+                <Link href="/settings" asChild>
+                  <TouchableOpacity
+                    style={{
+                      width: 50,
+                      height: 50,
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Settings color="white" />
+                  </TouchableOpacity>
+                </Link>
+              ),
             }}
           />
           <Stack.Screen
             name="convert"
             options={{
               title: "",
-              headerStyle: {
-                backgroundColor: "black",
-              },
+            }}
+          />
+          <Stack.Screen 
+            name="settings"
+            options={{
+              title: "Settings"
             }}
           />
         </Stack>

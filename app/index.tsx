@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   header: {
-    marginTop: 80,
+    marginTop: 40,
     alignItems: "center"
   },
   logo: {
