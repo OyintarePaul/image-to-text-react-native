@@ -4,7 +4,7 @@ import { Link } from "expo-router";
 import { ChevronRight, LucideIcon } from "lucide-react-native";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 
-interface SettingsListItem {
+interface SettingsListItemProps {
   label: string;
   Icon: LucideIcon;
   href: string;
@@ -21,7 +21,7 @@ export default function SettingsScreen() {
   );
 }
 
-function SettingsListItem({ item }: { item: SettingsListItem }) {
+function SettingsListItem({ item }: { item: SettingsListItemProps }) {
   return (
     <Link href={item.href as any} asChild>
       <TouchableOpacity style={styles.listItem} activeOpacity={0.7}>

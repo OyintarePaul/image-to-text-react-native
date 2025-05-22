@@ -39,7 +39,7 @@ export default function VoicesScreen() {
           <RadioButton
             id={item.identifier}
             size={20}
-            selected={settings.voice.identifier == item.identifier}
+            selected={settings.voice.identifier === item.identifier}
             borderColor="white"
             color="white"
           />

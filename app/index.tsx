@@ -19,7 +19,7 @@ export default function HomeScreen() {
     const options: ImagePicker.ImagePickerOptions = {
       allowsEditing: true,
     };
-    if (source == "camera") {
+    if (source === "camera") {
       result = await ImagePicker.launchCameraAsync(options);
     } else {
       result = await ImagePicker.launchImageLibraryAsync(options);
@@ -37,7 +37,7 @@ export default function HomeScreen() {
         <Image source={logo} style={styles.logo} />
         <Text style={styles.title}>Read Aloud</Text>
         <Text style={styles.subtitle}>
-          Take a picture and let's read the text in it
+          Take a picture and let&apos;s read the text in it
         </Text>
       </View>
       <View style={styles.footer}>
