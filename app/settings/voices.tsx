@@ -1,10 +1,10 @@
 import { useSettings } from "@/contexts/settings";
-import { useEffect, useState } from "react";
-
-import Text from "@/components/Text";
 import * as Speech from "expo-speech";
+import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { RadioButton } from "react-native-radio-buttons-group";
+
+import Text from "@/components/Text";
 
 export default function VoicesScreen() {
   const { settings, updateSettings } = useSettings();
@@ -21,6 +21,7 @@ export default function VoicesScreen() {
     };
     fetchVoices();
   }, []);
+  
   return (
     <FlatList
       contentContainerStyle={styles.container}

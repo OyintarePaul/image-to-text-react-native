@@ -4,10 +4,10 @@ import { Link } from "expo-router";
 import { ChevronRight, LucideIcon } from "lucide-react-native";
 import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 
-export interface SettingsListItem {
+interface SettingsListItem {
   label: string;
-  Icon?: LucideIcon;
-  href?: string;
+  Icon: LucideIcon;
+  href: string;
 }
 
 export default function SettingsScreen() {
@@ -22,30 +22,16 @@ export default function SettingsScreen() {
 }
 
 function SettingsListItem({ item }: { item: SettingsListItem }) {
-  const content = ({ label, Icon }: SettingsListItem) => {
-    return (
-      <TouchableOpacity
-        style={styles.listItem}
-        activeOpacity={0.7}
-      >
+  return (
+    <Link href={item.href as any} asChild>
+      <TouchableOpacity style={styles.listItem} activeOpacity={0.7}>
         <View style={styles.left}>
-          {Icon && <Icon color="white" />}
-          <Text>{label}</Text>
+          <item.Icon color="white" />
+          <Text>{item.label}</Text>
         </View>
         <ChevronRight color="#9a9a9a" />
       </TouchableOpacity>
-    );
-  };
-  return (
-    <>
-      {item.href ? (
-        <Link href={item.href as any} asChild>
-          {content(item)}
-        </Link>
-      ) : (
-        <>{content(item)}</>
-      )}
-    </>
+    </Link>
   );
 }
 
@@ -53,7 +39,6 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: 12,
     paddingBottom: 24,
-    minHeight: "100%",
   },
   left: {
     flexDirection: "row",
