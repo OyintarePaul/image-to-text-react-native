@@ -11,8 +11,10 @@ import {
   ImageToTextApiResponse,
 } from "@/utils/image-to-text";
 import { useEffect, useState } from "react";
+import { useSettings } from "@/contexts/settings";
 
 export default function ConvertScreen() {
+  const { settings } = useSettings();
   const { asset } = useSelectedAsset();
   const [response, setResponse] = useState<ImageToTextApiResponse>();
   const [errorMessage, setErrorMessage] = useState("");
@@ -40,36 +42,34 @@ export default function ConvertScreen() {
       uri: asset.uri,
       type: asset.mimeType as string,
     });
-  }
+  };
 
   const speakText = async () => {
     const isSpeaking = await Speech.isSpeakingAsync();
-    if (!isSpeaking && response?.annotations) Speech.speak(response.annotations.join(" "));
-  }
+    if (!isSpeaking && response?.annotations)
+      Speech.speak(response.annotations.join(" "), {
+        voice: settings.voice.identifier,
+      });
+  };
 
   return (
     <View>
-
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.wrapper}>
-        <Image
-          source={{ uri: asset?.uri }}
-          style={styles.image}
-          contentFit="contain"
-        />
-        {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
-        {response?.all_text && (
-          <Text style={styles.text}>{response.all_text}</Text>
-        )}
-      </View>
-      
-    </ScrollView>
-    <View style={styles.footer}>
-        {response?.all_text ? (
-          <Button
-            title="Read out loud"
-            onPress={speakText}
+      <ScrollView contentContainerStyle={styles.container}>
+        <View style={styles.wrapper}>
+          <Image
+            source={{ uri: asset?.uri }}
+            style={styles.image}
+            contentFit="contain"
           />
+          {errorMessage && <Text style={styles.error}>{errorMessage}</Text>}
+          {response?.all_text && (
+            <Text style={styles.text}>{response.all_text}</Text>
+          )}
+        </View>
+      </ScrollView>
+      <View style={styles.footer}>
+        {response?.all_text ? (
+          <Button title="Read out loud" onPress={speakText} />
         ) : (
           <Button
             title="Convert Text"
@@ -79,15 +79,15 @@ export default function ConvertScreen() {
           />
         )}
       </View>
-      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 100,    
+    paddingBottom: 100,
     paddingHorizontal: 16,
-    minHeight: "100%"
+    minHeight: "100%",
   },
   wrapper: {
     gap: 16,
