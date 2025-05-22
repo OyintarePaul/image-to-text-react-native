@@ -1,5 +1,5 @@
-import * as Speech from "expo-speech";
 import { createContext, useCallback, useContext, useState } from "react";
+import * as Speech from "expo-speech";
 
 interface Settings {
   voice: Speech.Voice;

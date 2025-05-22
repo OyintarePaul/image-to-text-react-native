@@ -26,6 +26,7 @@ export default function VoicesScreen() {
     <FlatList
       contentContainerStyle={styles.container}
       data={voices}
+      showsVerticalScrollIndicator={false}
       keyExtractor={(item) => item.identifier}
       renderItem={({ item }) => (
         <TouchableOpacity
@@ -39,6 +40,7 @@ export default function VoicesScreen() {
           <RadioButton
             id={item.identifier}
             size={20}
+            containerStyle={{ position: "relative", top: 4 }}
             selected={settings.voice.identifier === item.identifier}
             borderColor="white"
             color="white"

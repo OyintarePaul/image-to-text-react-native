@@ -54,7 +54,10 @@ export default function ConvertScreen() {
 
   return (
     <View>
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.wrapper}>
           <Image
             source={{ uri: asset?.uri }}
